@@ -1,0 +1,9 @@
+{
+  "title": "Welkom bij onze Meertalige App",
+  "description": "Selecteer je voorkeurstaal",
+  "languages": {
+    "nl": "Nederlands",
+    "en": "Engels",
+    "de": "Duits"
+  }
+} 

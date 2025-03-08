@@ -1,0 +1,9 @@
+{
+  "title": "Welcome to our Multilingual App",
+  "description": "Select your preferred language",
+  "languages": {
+    "nl": "Dutch",
+    "en": "English",
+    "de": "German"
+  }
+} 
