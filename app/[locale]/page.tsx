@@ -1,12 +1,12 @@
-'use client';
-
-import {useTranslations} from 'next-intl';
-import {usePathname} from 'next/navigation';
+import {getTranslations} from 'next-intl/server';
+import {setRequestLocale} from 'next-intl/server';
 import NextLink from 'next/link';
 
-export default function Home() {
-  const t = useTranslations();
-  const pathname = usePathname();
+export default async function Home({params: {locale}}: {params: {locale: string}}) {
+  // Enable static rendering
+  setRequestLocale(locale);
+  
+  const t = await getTranslations();
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-gray-100">
@@ -19,13 +19,13 @@ export default function Home() {
         </p>
         
         <div className="flex flex-col space-y-2">
-          {['nl', 'en', 'de'].map((locale) => (
+          {['nl', 'en', 'de'].map((loc) => (
             <NextLink
-              key={locale}
-              href={`/${locale}`}
+              key={loc}
+              href={`/${loc}`}
               className="w-full py-2 px-4 text-center rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors"
             >
-              {t(`languages.${locale}`)}
+              {t(`languages.${loc}`)}
             </NextLink>
           ))}
         </div>
